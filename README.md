@@ -200,7 +200,9 @@ runners.
 
 ## License
 
-This tap does not include a license file. The `trusttunnel` and
-`trusttunnel-client` formulae install binaries published by the
-[TrustTunnel server][trusttunnel] and [TrustTunnel client][trusttunnel-client]
-projects, which are licensed under the Apache License 2.0.
+The tap is licensed under the [Apache License 2.0](LICENSE).
+
+The `trusttunnel` and `trusttunnel-client` formulae install binaries published
+by the [TrustTunnel server][trusttunnel] and
+[TrustTunnel client][trusttunnel-client] projects, which are also licensed
+under the Apache License 2.0.
