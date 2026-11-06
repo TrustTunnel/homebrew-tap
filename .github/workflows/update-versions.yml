@@ -1,0 +1,64 @@
+# Periodically checks the upstream GitHub releases for the tap's formulas and
+# commits the pinned version updates directly to master. The multi-stage
+# Dockerfile (test, update, and export stages) runs scripts/update-versions.js,
+# which only rewrites the managed block of each formula. The updated Formula/
+# is written back with `docker build --output type=local`. The workflow commits
+# and pushes with the built-in GITHUB_TOKEN, then dispatches test.yml because a
+# GITHUB_TOKEN push does not trigger workflows.
+name: Update formula versions
+
+on:
+  schedule:
+    # Check for newer upstream releases daily at 06:00 UTC.
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-versions:
+    if: github.repository == 'TrustTunnel/homebrew-tap' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      actions: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+
+      # Build the multi-stage image: the 'test' stage runs the unit tests and
+      # the 'update' stage runs scripts/update-versions.js inside the
+      # container. The 'export' (scratch) stage then writes the updated
+      # Formula/ to /tmp/tap-out, and the workflow copies only Formula/ back
+      # into the checkout. CACHEBUST forces the upstream check to re-run on
+      # every build instead of being served from the Docker layer cache.
+      - name: Bump formula versions
+        id: bump
+        run: |
+          docker build \
+            --target export \
+            --build-arg CACHEBUST="$(date -u +%s)" \
+            --output type=local,dest=/tmp/tap-out .
+          sudo chown -R "$(id -u):$(id -g)" /tmp/tap-out
+          cp -R /tmp/tap-out/Formula/. Formula/
+          rm -rf /tmp/tap-out
+          if git diff --quiet -- Formula; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit and push updated formulas
+        if: steps.bump.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Formula
+          git commit -m "chore: bump homebrew formula versions"
+          git push origin master
+
+      - name: Dispatch the test workflow
+        if: steps.bump.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run test.yml --repo "$GITHUB_REPOSITORY" --ref master

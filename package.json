@@ -1,0 +1,14 @@
+{
+  "name": "trusttunnel-homebrew-tap",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TrustTunnel Homebrew tap with pinned formula versions, auto-bumped by a scheduled workflow (see .github/workflows/update-versions.yml)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "update-versions": "node scripts/update-versions.js",
+    "test": "node --test"
+  }
+}
