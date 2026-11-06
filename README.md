@@ -164,4 +164,5 @@ brew test TrustTunnel/tap/trusttunnel-client
 ```
 
 The CI workflow (`.github/workflows/test.yml`) does the same thing on every
-push and pull request on GitHub-hosted `macos-latest` runners.
+push, pull request, and manual dispatch on GitHub-hosted `macos-latest`
+runners.
