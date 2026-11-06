@@ -1,11 +1,42 @@
-# TrustTunnel Homebrew Tap
+<!-- markdownlint-disable MD041 -->
+<p align="center">
+<picture>
+<source media="(prefers-color-scheme: dark)" srcset="https://cdn.adguardcdn.com/website/github.com/TrustTunnel/logo_dark.svg" width="300px" alt="TrustTunnel" />
+<img src="https://cdn.adguardcdn.com/website/github.com/TrustTunnel/logo_light.svg" width="300px" alt="TrustTunnel" />
+</picture>
+</p>
+
+<p align="center">Homebrew formulae for the TrustTunnel VPN endpoint and command-line client</p>
+
+<p align="center"><a href="#formulas">Formulas</a>
+  · <a href="#usage">Usage</a>
+  · <a href="https://github.com/TrustTunnel/TrustTunnel">Server</a>
+  · <a href="https://github.com/TrustTunnel/TrustTunnelClient">CLI client</a>
+  · <a href="https://trusttunnel.org">Website</a>
+</p>
+
+---
+
+## Table of Contents
+
+- [Formulas](#formulas)
+- [Usage](#usage)
+- [How the formulas work](#how-the-formulas-work)
+- [How versions are kept up to date](#how-versions-are-kept-up-to-date)
+- [Supported platforms](#supported-platforms)
+- [Development](#development)
+    - [Repository setup](#repository-setup)
+    - [Local validation](#local-validation)
+- [License](#license)
+
+---
 
 A [Homebrew tap](https://docs.brew.sh/Taps) that installs the TrustTunnel
 server and command-line client as prebuilt binaries. Every formula pins an
 **exact** release, and a scheduled workflow automatically bumps the pins when
 the upstream projects publish newer versions.
 
-## What's in this tap
+## Formulas
 
 This tap provides prebuilt binaries of the following TrustTunnel tools. Each
 tool links to its upstream repository:
@@ -166,3 +197,10 @@ brew test TrustTunnel/tap/trusttunnel-client
 The CI workflow (`.github/workflows/test.yml`) does the same thing on every
 push, pull request, and manual dispatch on GitHub-hosted `macos-latest`
 runners.
+
+## License
+
+This tap does not include a license file. The `trusttunnel` and
+`trusttunnel-client` formulae install binaries published by the
+[TrustTunnel server][trusttunnel] and [TrustTunnel client][trusttunnel-client]
+projects, which are licensed under the Apache License 2.0.
