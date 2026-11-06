@@ -141,13 +141,12 @@ The update workflow uses the built-in `GITHUB_TOKEN` with `contents: write`
 and `actions: write`. It commits `Formula/` directly to `master`, then
 dispatches `test.yml`.
 
-- The private phase needs no GitHub App and no app secret.
-- The repository must allow direct pushes to `master`. The private phase has
-  no ruleset.
-- The `master` ruleset and auto-merge are deferred to the public phase. A
-  `GITHUB_TOKEN` direct push is blocked by a ruleset unless the GitHub Actions
-  app is a bypass actor. A `GITHUB_TOKEN` pull request is the safer no-app
-  option for the public phase.
+- The tap needs no GitHub App and no app secret.
+- The repository must allow direct pushes to `master`. The private and public
+  phases have no ruleset.
+- The public phase keeps the direct `GITHUB_TOKEN` push. There is no pull
+  request flow. The test runs after the push. This is the accepted trade-off
+  for a fully automatic update.
 - The default branch is `master`.
 - `test.yml` runs on `workflow_dispatch` after the update push.
 
