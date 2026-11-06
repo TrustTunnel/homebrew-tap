@@ -83,7 +83,8 @@ not install Node there. Instead, it builds the multi-stage
 [`Dockerfile`](Dockerfile) (which runs `npm test` in the `test` stage and the
 bump script in the `update` stage inside a `node:24-bookworm-slim` image) and
 copies `Formula/` back from Docker's local output (see "How versions are kept
-up to date"). The runner only needs Docker.
+up to date"). The build step needs only Docker. The runner also needs `git` and
+`gh`, which are preinstalled.
 
 ### Repository setup
 

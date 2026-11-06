@@ -6,7 +6,7 @@
 </picture>
 </p>
 
-<p align="center">Homebrew formulae for the TrustTunnel VPN endpoint and command-line client</p>
+<p align="center">Homebrew formulas for the TrustTunnel VPN endpoint and command-line client</p>
 
 <p align="center"><a href="#formulas">Formulas</a>
   · <a href="#usage">Usage</a>
@@ -105,7 +105,7 @@ repository setup, and local formula validation.
 
 The tap is licensed under the [Apache License 2.0](LICENSE).
 
-The `trusttunnel` and `trusttunnel-client` formulae install binaries published
+The `trusttunnel` and `trusttunnel-client` formulas install binaries published
 by the [TrustTunnel server][trusttunnel] and
 [TrustTunnel client][trusttunnel-client] projects, which are also licensed
 under the Apache License 2.0.
