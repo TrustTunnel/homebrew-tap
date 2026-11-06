@@ -92,11 +92,9 @@ and `actions: write`. It commits `Formula/` directly to `master`, then
 dispatches `test.yml`.
 
 - The tap needs no GitHub App and no app secret.
-- The repository must allow direct pushes to `master`. The private and public
-  phases have no ruleset.
-- The public phase keeps the direct `GITHUB_TOKEN` push. There is no pull
-  request flow. The test runs after the push. This is the accepted trade-off
-  for a fully automatic update.
+- The repository must allow direct pushes to `master`.
+- The update workflow keeps the direct `GITHUB_TOKEN` push. There is no pull
+  request flow. The test runs after the push.
 - The default branch is `master`.
 - `test.yml` runs on `workflow_dispatch` after the update push.
 
