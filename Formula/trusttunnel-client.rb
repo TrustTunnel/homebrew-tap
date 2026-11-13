@@ -7,18 +7,18 @@ class TrusttunnelClient < Formula
   # schedule (see .github/workflows/update-versions.yml). Do not edit the
   # managed block by hand — run `npm run update-versions` instead.
   # --- BEGIN MANAGED ---
-  version "1.1.11"
+  version "1.1.12"
 
-  url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.11/trusttunnel_client-v1.1.11-macos-universal.tar.gz"
-  sha256 "e2c67aaea941fcdcfc24ec9868164462fcea8d1f731f6928c49bbef300dcf1a3"
+  url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.12/trusttunnel_client-v1.1.12-macos-universal.tar.gz"
+  sha256 "932dff4f396811e31c64644bca422808bf3b79c45877aae7956429082a2c7214"
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.11/trusttunnel_client-v1.1.11-linux-aarch64.tar.gz"
-      sha256 "880e9c8afd5cce7ff38c53978f0ea530ff95e679bcfef69c5127b26b3692d110"
+      url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.12/trusttunnel_client-v1.1.12-linux-aarch64.tar.gz"
+      sha256 "10402be7e715f35380e8bcf67e2d8f2ceb9fad81eef8274a472e3a085a0d5cc1"
     else
-      url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.11/trusttunnel_client-v1.1.11-linux-x86_64.tar.gz"
-      sha256 "00e0546a6b35840dbb92b741dff3da6732a74bf2d6c581e044bb4567c0d96825"
+      url "https://github.com/TrustTunnel/TrustTunnelClient/releases/download/v1.1.12/trusttunnel_client-v1.1.12-linux-x86_64.tar.gz"
+      sha256 "75b7df59351e26462487464de5f3462153e00195f2d40677872fb93a5b44c488"
     end
   end
   # --- END MANAGED ---
