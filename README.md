@@ -74,13 +74,10 @@ brew install TrustTunnel/tap/trusttunnel-client
 
 The formulas install these commands:
 
-- `trusttunnel` installs `trusttunnel_endpoint` and
-  `trusttunnel-setup-wizard`.
-- `trusttunnel-client` installs `trusttunnel_client` and
-  `trusttunnel-client-setup-wizard`.
-
-The setup wizards have different names, so the two formulas do not conflict
-when you install both.
+- `trusttunnel` installs `trusttunnel_endpoint`. Run
+  `trusttunnel_endpoint --setup-wizard` to start the setup wizard.
+- `trusttunnel-client` installs `trusttunnel_client`. Run
+  `trusttunnel_client --setup-wizard` to start the setup wizard.
 
 ## Supported platforms
 

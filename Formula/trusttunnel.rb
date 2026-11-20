@@ -25,7 +25,6 @@ class Trusttunnel < Formula
 
   def install
     bin.install "trusttunnel_endpoint"
-    bin.install "setup_wizard" => "trusttunnel-setup-wizard"
   end
 
   test do

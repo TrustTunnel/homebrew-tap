@@ -19,18 +19,18 @@ inside a marked metadata block:
 
 ```ruby
 # --- BEGIN MANAGED ---
-version "1.1.0"
+version "1.3.1"
 
-url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-macos-universal.tar.gz"
-sha256 "126a5688..."
+url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.3.1/trusttunnel-v1.3.1-macos-universal.tar.gz"
+sha256 "d99f7ec8..."
 
 on_linux do
   if Hardware::CPU.arm?
-    url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-aarch64.tar.gz"
-    sha256 "c2aee17a..."
+    url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.3.1/trusttunnel-v1.3.1-linux-aarch64.tar.gz"
+    sha256 "b8279589..."
   else
-    url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.1.0/trusttunnel-v1.1.0-linux-x86_64.tar.gz"
-    sha256 "91c2ea3d..."
+    url "https://github.com/TrustTunnel/TrustTunnel/releases/download/v1.3.1/trusttunnel-v1.3.1-linux-x86_64.tar.gz"
+    sha256 "29fd330e..."
   end
 end
 # --- END MANAGED ---
